@@ -1,0 +1,566 @@
+Comandos Linux que debes conocer
+
+
+Si eres nuevo en Linux y no conoces como trabajar con la terminal, estos 10 comandos te serán muy útiles para dar tus primeros pasos:
+
+1. pwd
+Significa Personal Working Directory te muestra la ruta del directorio en que estás ubicado actualmente.
+
+$ pwd
+/home/alejandro/EDteam
+
+2. mkdir
+Significa Make Directory y con él puedes crear una nueva carpeta con el nombre que indiques.
+
+mkdir {nombre_de_la_carpeta}
+
+$ mkdir mi_carpeta
+
+3. touch
+Con este comando puedes crear nuevos archivos en el directorio actual.
+
+$ touch mi_archivo.txt
+$ ls
+mi_archivo.txt
+
+4. ls
+Este comando lista los archivos y directorios de la carpeta actual.
+
+$ ls
+mi_archivo.txt
+mi_carpeta
+Si quieres mostrar elementos ocultos, usa el flag -a.
+
+$ ls -a
+.soy_un_archivo_oculto
+mi_archivo.txt
+mi_carpeta
+Para listar el contenido detallado usa el flag -l
+
+$ ls -l
+-rw-rw-r-- 1 alejandro alejandro    0 oct 22 16:46 mi_archivo.txt
+drwxrwxr-x 2 alejandro alejandro 4096 oct 22 16:42 mi_carpeta
+
+5. cd
+El comando cd (change directory) permite moverse entre directorios del sistema.
+
+cd {ruta\_absoluta\_o\_relativa}
+
+Puedes cambiar de directorio especificando la ruta absoluta desde el directorio raíz o relativa desde tu ubicación actual, en Linux el directorio actual se indica con el signo .
+
+Los siguientes tres comandos realizan la misma acción para moverte al directorio mi\_carpeta
+
+$ pwd
+/home/alejandro/EDteam
+
+$ cd /home/alejandro/EDteam/mi_carpeta
+$ cd ./mi_carpeta
+$ cd mi_carpeta
+Para regresar al directorio anterior usa el comando cd -
+
+$ pwd
+/home/alejandro/EDteam/mi_carpeta
+
+$ cd -
+
+$ pwd
+/home/alejandro/EDteam
+Para moverte un directorio por encima de tu posición actual puedes usar el comando cd .., o una secuencia de .. para ir subiendo por la estructura de directorios. Por ejemplo para ir a la carpeta home desde nuestra ubicación actual EDteam usaremos:
+
+$ pwd
+/home/alejandro/EDteam
+$ cd ../..
+$ pwd
+/home 
+
+6. mv
+El comando mv (Move) mueve directorios o archivos de una ubicación a otra. Su sintaxis es: mv {ubicación\_actual} {nueva\_ubicación}
+
+$ mv mi_archivo.txt ./mi_carpeta/mi_archivo.txt
+También puedes renombrar archivos y carpetas con este mismo comando: mv {nombre\_actual} {nombre\_nuevo}
+
+$ mv mi_archivo.txt usuarios.txt
+$ mv mi_carpeta cursos
+
+
+7. cp
+El comando cp (Copy) copia archivos o directorios. Su sintaxis es cp {origen} {destino}
+
+$ cp usuarios.txt usuarios_copia.txt
+Para copiar directorios agrega la opción -r.
+
+$ cp -r cursos/ cursos_copia/
+
+
+8. rm y rmdir
+El comando rm (Remove) elimina archivos. Su sintaxis es rm {nombre\_del\_archivo}
+
+El comando rmdir (Remove directory) elimina carpetas vacías. Su sintaxis es: rmdir {nombre\_carpeta}
+
+$ rmdir carpeta_vacia/
+Para eliminar directorios no vacíos usa el comando rm con la opción -r
+
+$ rm -r cursos_copia/ 
+
+9. cat
+El comando cat te permite leer el contenido de archivos.
+
+$ cat notas.txt
+
+Estas son las notas de mi curso
+Fin de las notas de mi curso
+Puedes mostrar las lineas del archivo con la opción -n.
+
+$ cat -n notas.txt
+
+1 Estas son las notas de mi curso
+2 Fin de las notas de mi curso
+
+10. find
+Con el comando find y la opción -iname puedes encontrar archivos. La sintaxis es: find {donde\_buscar} -iname {archivo\_a\_buscar}
+
+$ find . -iname "usuarios.txt"
+./cursos/usuarios.txt
+
+
+
+
+Comandos Principales De Linux Guía Fácil
+ 2017-01-31 Comments(2)
+
+ 
+En la publicación anterior, hablamos acerca de como instalar Linux, ahora vamos a hablar acerca de las características más ponderosas en Linux las cuales son los comandos principales de Linux o comandos del shell.
+
+Para encontrar toda la documentación de los comandos de Linux, puedes revisar la Documentación de Linux.
+
+El poder de Linux está en el poder de los comandos que utilices.
+
+Voy a hablarles acerca de los comandos de Linux principales con los parámetros principales que podrías utilizar diariamente.
+
+Table of Contents [hide]
+
+1 Comando ls
+2 Comando cd
+3 Comando cp
+4 Comando mv
+5 Comando rm
+6 Comando mkdir
+7 Comando rmdir
+8 Comando chown
+9 Comando chmod
+10 Comando Localizar
+11 Comando updatedb
+12 Comando date
+13 Comando tar
+14 Comando cat
+15 Comando less
+16 Comando grep
+17 Comando passwd
+18 Comando du
+19 Comando reboot
+20 Comando halt
+ 
+
+
+ 
+Comando ls
+Lista los archivos y carpetas del directorio actual.
+
+Parámetros
+
+–l
+
+Para listar el contenido como una lista detallada.
+
+-a
+
+Mostrar los archivos (ocultos + no-ocultos).
+
+Puedes combinar parametros de la siguiente forma:
+
+ls -la
+Comandos principales de Linux
+Comando cd
+Change directory from the current directory to another one.
+
+cd /home
+Hace que navegues hasta el directorio home:
+
+Comando cd
+
+Comando cp
+Copia la fuente al objetivo.
+
+Parámetros
+
+-i
+
+Modo interactivo indica que espera por la confirmación si hay archivos en el destino que puedan ser sobrescritos.
+
+-r
+
+Copia recursiva significa que incluye los subdirectorios si estos existen.
+
+Ejemplo:
+
+cp –ir sourcedir targetdir
+Comando cp
+Comando mv
+Mueve la Fuente al objetivo removiendo la fuente.
+
+Parámetros
+
+-i
+
+Modo interactivo indica que espera por la confirmación si hay archivos en el destino que puedan ser sobrescritos.
+
+Ejemplo
+
+mv –i sourceFile targetFile
+Comando mv
+Comando rm
+Elimina un archivo o directorio y debes utilizar – r en caso de que quieras eliminar un directorio.
+
+Parámetros
+
+-r
+
+Una eliminación recursiva significa que todos los subdirectorios si existen.
+
+-i
+
+Interactivo significa que debes esperar hasta la confirmación
+
+Comando rm
+Comando mkdir
+Crea un nuevo directorio.
+
+mkdir newDir
+Comando mkdir
+
+Comando rmdir
+Eliminar un directorio.
+
+Comando rmdir
+Comando chown
+Cambia el dueño del archivo o directorio.
+
+Parámetros:
+
+-R
+
+La R mayúsculas significa cambiar el dueño de todos los subdirectorios si existen, debes utilizar este parámetro si utilizas el comando contra un directorio.
+
+chown –R root:root myDir
+Comando chown
+Comando chmod
+Cambia los permisos de un archivo o directorio.
+
+Parámetros
+
+El modo consiste en 3 partes. dueño, grupos, y otros esto hace referencia a los permisos para estos modos y debes especificarlos.
+
+Los permisos son los siguientes:
+
+Read (Lee) =4
+
+Write (Escribir) = 2
+
+Execute (Ejecutar) =1
+
+Cada permiso es representado por un número como se muestras y puedes además combinar permisos.
+
+Ejemplo
+
+chmod 755 myfile
+Esto significa establecer permisos para el archivo llamado myfile:
+
+owner: establecer a 7 lo cual significa 4+2+1 y esto es read+write+execute.
+
+group: establecer 5 esto significa 4+1 y esto es read+execute.
+
+other: Establecer 5 lo cual significa 4+1 y esto es read+execute.
+
+Nota: Ejecutar para para un permiso de usuario significa abrirlo.
+
+Comando chmod
+Comando Localizar
+Para encontrar un archivo en tu sistema, el comando localizar buscara en un sistema para el patrón que tu proporcionas.
+
+locate myfile
+Comando locate
+Comando updatedb
+Actualiza la base de datos utilizada por el comando locate..
+
+Comando date
+Solo imprime la fecha del día de hoy. Solo escribe date en el shell.
+
+Comando tar
+Combina distintos archivos en un archive comprimido si lo deseas.
+
+Parámetros
+
+-c
+
+Crea un nuevo archivo.
+
+-z
+
+Comprime el archivo utilizando paquetes gzip.
+
+-j
+
+Comprime el archivo utilizando paquetes bzip2.
+
+-v
+
+Modo Verbose significa que puedes mostrar archivos procesados.
+
+-f
+
+Escribe la salida a un archivo y no a la pantalla.
+
+-x
+
+Desempaca archivos comprimidos.
+
+Ejemplo
+
+tar –czvf myfiles.tar.gz myfiles
+Comando tar
+Este comando empaquetara y comprimirá todos los archivos de la carpeta myfiles a un archive comprimido con nombres myfiles.tar.gz.
+
+tar-xzvf myfiels.tar.gz
+Comando tar extraer
+Desempaca archivos comprimidos.
+
+Comando cat
+Muestra el contenido de un archivo en la pantalla sin limites.
+
+Ejemplo
+
+cat myfile.txt
+comando cat
+Comando less
+Muestra el contenido del archivo con una pantalla de desplazamiento de manera que puedas manejar entre paginas utilizando PgUp, PgDn, Home, y End.
+
+less myfile
+Comando grep
+Busca una cadena de caracteres en los archivos especificados y muestra que líneas contienen la cadena especificada.
+
+Parámetros
+
+-R
+
+Búsqueda recursiva dentro de subdirectorios si existen.
+
+-i
+
+Búsqueda que ignora las mayúsculas.
+
+-l
+
+Muestras el nombre del archivo, no las líneas de textos.
+
+Ejemplo
+
+grep –Ril mystring /home
+comando grep
+Comando passwd
+Utilizado para cambiar tu contraseña de usuario.
+
+comando passwd
+Comando du
+Calcula el uso del disco de un archivo o directorio.
+
+Parámetros
+
+-h
+
+Muestra un formulario de lectura.
+
+-s
+
+Resume el tamaño total de la salida.
+
+Ejemplo
+
+du –hs /home
+comando du
+Comando reboot
+Reinicia el sistema inmediatamente. Solo escribe reboot.
+
+Comando halt
+Apaga el sistema, pero se asegura de cerrar todos tus archivos para evitar la pérdida de datos.
+
+Estos son solo algunos de los comandos principales en Linux.
+
+Ten en cuenta que, si olvidas alguno de los parámetros, solo escribe el comando –help como un parámetro y este listara los parámetros que se puede utilizar, de manera que no tengas que recordar todos los parámetros siempre.
+
+cat --help
+Estos fueron parte de los comandos principales de linux. Continuara.
+
+
+https://likegeeks.com/es/comandos-principales-de-linux/ 
+
+
+Comandos Básicos De Linux Para Uso Diario
+
+
+
+ 
+
+Hablamos sobre el comando ls en la publicación anterior y solo discutimos 2 parámetros. Profundicemos un poco y veamos que otros parámetros pueden hacer este comando más poderoso.
+
+ls -R
+para enumerar recursivamente todos los archivos en un directorio
+
+El parámetro -R recorrerá profundamente hasta que finalice todos los directorios.
+
+ls –r
+  Invierte el ordenamiento de los archivos y directorios mostrados.
+
+Comandos básicos de Linux
+ls -S
+  Ordena la salida por tamaño de archivo.
+
+comando ls -lS
+ls -t
+  Ordena la salida por tiempo de modificación del archivo.
+
+comando ls -lt
+ 
+
+
+ 
+Filtrar la salida del comando ls
+ls -l myfile?
+Un signo de interrogación se usa para representar un carácter.
+
+ls -l myprob*
+Se utiliza un asterisco para representar cero o más caracteres.
+
+El signo de interrogación y el asterisco se llaman caracteres comodines.
+
+caracteres comodines
+ 
+
+
+Crear archivos
+touch test1
+El comando touch se utiliza para crear un archivo vacío.
+
+comando touch
+Si lo utiliza contra un archivo existente, cambiará la fecha de acceso; si el archivo no existe, lo creará.
+
+Puedes utilizar el mismo comando para cambiar la fecha de modificación de un archivo existente, simplemente escríbelo con -t seguido de la fecha con el siguiente formato AAAAMMDDHHMM
+
+touch -t 202012011200 test1
+crear archivo existente
+ 
+
+
+Crear atajos (enlaces)
+Sabemos por la publicación anterior que el comando cp se utiliza para copiar archivos.
+
+En Linux, puedes crear:
+
+Hard links.
+Soft links o enlaces simbólicos.
+cp -l file1 file2
+Hard Links
+Los hard links crean un archivo separado que contiene información sobre el archivo original y dónde se encuentra.
+
+Ten en cuenta que el enlace fijo solo se crea entre archivos en la misma unidad física.
+
+Si necesitas crear enlaces en una unidad física diferente, tendrá que crear un soft links en su lugar.
+
+cp hardlink
+Enlaces Simbólicos
+Para crear un enlace simbólico o soft links, utiliza el parámetro -s:
+
+cp -s file1 file2
+Enlaces simbólicos
+También deberíamos mencionar otro comando que hace enlaces ademas de cp,que es el comando ln , puedes crear hard y soft links de esta manera:
+
+ln myfile myfile2
+Este comando crea un hard link.
+
+comando ln
+ln -s myfile myfile2
+Este comando crea un soft link.
+
+crea un soft link
+Ver el tipo de archivo
+file myfile
+
+Determina el tipo de archivo.
+
+comando file
+ 
+
+Visualización del final del archivo
+El comando tail se utiliza para ver las últimas 10 líneas de un archivo. Este comando es útil cuando se trabaja con archivos grandes.
+
+El parámetro -n sirve para especificar el número de líneas.
+
+-f  es un parámetro para permanecer en el archivo y seguir viendo las últimas líneas que especificó como monitoreo, y esto es muy importante cuando se buscan archivos de registro.
+
+comando tail
+ 
+
+Ver la parte superior del archivo
+El comando head se usa para ver las primeras 10 líneas de un archivo.
+
+comando head
+ 
+
+Lista de procesos en ejecución
+El comando ps lista los procesos que se están ejecutando actualment.
+
+$ ps aux
+ps aux
+El comando top hace lo mismo.
+
+-Puedes utilizar el comando top con la opción -c para ver la ruta ejecutable del proceso en ejecución.
+
+comando top
+ 
+
+Kill a process
+Para matar un proceso:
+
+pkill processName
+
+comando kill
+escribe xkill y presiona Enter para eliminar cualquier ventana que no responda.
+
+comando xkill
+
+Espacio libre en el disco
+El comando df muestra el espacio libre del disco.
+
+df -h
+-h muestra un valor legible para las personas
+
+comando df
+Esos fueron uno de los Comandos básicos de Linux. Espero que los disfrutaran. Sigue regresando.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
