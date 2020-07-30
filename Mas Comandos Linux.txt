@@ -1,0 +1,216 @@
+LISTAR FICHEROS
+
+ls = Lista archivos.
+ls -l = Lista archivos con detalles.
+ls -a = Lista contenido oculto.
+ls -t = Lista archivos por orden alfabético.
+ls -r = Lista archivos orden alfabético inverso.
+ls -s = Lista archivos con tamaño en kb.
+ls -R = Lista Diectorio en forma recursiva.
+ls -lha = Lista archivos con información de tamaño de archivo.
+ls -ld */ = Lista solamente directorios.
+ls -X = Lista por fecha de modificación.
+clear = Limpia pantalla.
+pwd = Muestra el directorio actual.
+
+
+FICHEROS LOCALIZAR
+
+find -name archivo_buscar = Busca archivo por nombre
+find -iname archivo_buscar = Busca archivo por nombre similar.
+find -perm 777 = Busca archivo por permisos.
+localizar archivo.txt
+¿Dónde está?
+wich archivo.txt
+
+
+FICHEROS VISUALIZAR
+
+gato
+cat -b archivo.txt = Añade el número de línea. No cuenta las líneas vacías.
+cat -n archivo.txt = Agrega el número de línea. Cuenta las líneas vacías.
+cat -E archivo.txt = Muestra el signo dolar al final de cada línea. Útil para guiones.
+tac archivo.txt = Muestra la información en forma inversa.
+head archivo.txt = Muestra las primeras 10 líneas.
+head -n X archivo.txt = Muestra las líneas que se indican en X.
+cola archivo.txt = Muestra las últimas 10 líneas.
+tail -n X archivo.txt = Muestra las líneas que se indican en X.
+tail -f archivo.txt = Para mirar las líneas que están de acuerdo al final del archivo.
+más
+Menos
+nano = ctrl + o: Guardar ctrl + k: Cortar ctrl + u: Pegar
+vi
+
+
+
+GESTION DE FICHEROS
+
+cd = Cambiar de directorio.
+cp (Copia o cambia nomrbe)
+cp /home/usuario/prueba.txt / home
+cp -r = Copia en forma recursiva de los documentos y archivos internos.
+cp -p = Copia los atributos del archivo original.
+cp -i = Pregunta antes de sobreescribir.
+mv (Mueve o corta)
+mv /home/usuario/prueba.txt / home
+rm (Eliminar un archivo)
+rm archivo.txt
+rm -r archivo.txt = Eliminar directorios conurales.
+rm -p archivo.txt = Eliminar un árbol completo de directorios vacíos.
+rm -F archivo.txt = Fuerza la eliminación del directorio.
+rm -fr = Borra todos los archivos sin pedir confirmación y de forma recursiva.
+mkdir = Crea un directorio.
+mkdir -p / Carpetas / recursivas / Ejemplo = Crea un árbol de documentos.
+mkdir -m 700 laura (Con permisos) = Crea un directorio con permisos.
+rmdir = Elimina directorios vacíos.
+toque (Crea archivo)
+scp laura@192.168.0.133: prueba.txt. (Descargar un archivo desde un servidor)
+scp (nombre_archivo o ruta) usuario@192.168.56.50: ruta_destino (Subir un archivo al servidor)
+
+
+
+GESTION DE PROCESOS
+
+ps = Muestra el estado de los procesos
+ps -A = Muestra todos los procesos del sistema.
+ps -e = Muestra todos los procesos del sistema.
+ps -x = Muestra todos los procesos del usuario.
+ps -aux = Muestra todos los procesos del usuario con detalles.
+ps -faux = Muestra todos los procesos del usuario con detalles en árbol.
+pstree = Muestra los procesos activos en árbol.
+top = Muestra de información de los procesos y el hardware utilizado. Se actualiza cada 3 segundos.
+	M = Ordenar por uso de memoria.
+	P = Ordenar por uso de cpe.
+	T = Ordenar por tiempo utilizado de cpu.
+	F = Seleccionar el campo a ordenar.
+	i = Moestrar u ocultar los procesos inactivo y zombie.
+	s = Cambiar el
+kill -SIGTERM process_id (Matar proceso)
+
+
+
+GESTION DE USUARIOS
+
+/ etc / passwd = Definir el usuario en 7 campos separados por:
+Nombre de usuario: contraseña: UID: GID: Comentarios: Directorio de trabajo: Shell
+/ etc / shadow = Se encuentra encriptada la contraseña en este archivo. Caducidad de cuenta, cambios de contraseña.
+passwd = Cambiar contraseña root.
+/ etc / sudoers = Agregar usuario con permisos de root.
+
+PERMISOS DE GESTION
+
+chown (Cambio de propietario) ejemplo: sudo chown nuevo_propietario directorio
+chown -R: Cambia el permiso de archivo en subdirectorios del archivo en ese momento
+chown -C: Cambia el permiso para cada archivo.
+chown -f: Cuando es incapaz de cambiar la titularidad del archivo, error de previene de mostrar.
+chgrp (Cambio de grupo) ejemplo: sudo chgrp nuevo_grupo directorio
+chgrp -R: Cambia el permiso de archivo en subdirectorios del archivo en ese momento
+chgrp -C: Cambia el permiso para cada archivo.
+chgrp -f: Fuerza el cambio.
+chmod: Cambia permiso un archivo. Ej: chmod 644 prueba.txt
+	r = Leer o 4
+	w = escribir o 2
+	x = Ejecutar o 1 
+	Prueba de chmod ugo + rwx (da permisos rwx a todos, usuario, grupo, otros)
+	Prueba de chmod ugo-x (quita permiso x (ejecución) a todos, usuario, grupo, otros) 
+	Prueba de chmod o-rwx (quita permisos rwx a otros) 
+	chmod u = rwx, g = rx test (da permisos rwx un usuario, rx un grupo y ninguno a otros)
+
+
+SOFTWARE DE GESTION
+
+/ect/apt/apt.conf = Fichero de conifguración global.
+/ect/apt/sources.list = Lista de repositorio.
+/ var / cache / apt = Directorio de caché.
+apt-cache = Para ver información de los paquetes.
+apt-get update = Actualiza el listado de los paquetes disponibles obteniendo el repositorio configurado.
+apt-get uprgade = Realiza la actualización del sistema.
+apt-get dist-upgrade = Actualiza el sistema resolviendo conflictos de dependencias.
+apt install = Instala un paquete.
+apt remove = Elimina un paquete.
+apt --purge = Eliminar los parámetros de configuración.
+
+
+ssh usuario @ direccion_ip
+ssh usuario @ direccion_ip sudo apt update (Ejecutar comando de forma remota)
+sshd -T | less (Muestra configuración de ssh)
+
+
+
+
+pared -n
+shutdown -r +30 = Reinicio en 30 minutos
+shutdown -c = Para cancelar
+shutdown -p = Apaar
+
+
+
+
+Transferir archivos por scp
+
+
+
+Ver aplicaciones instaladas
+
+dpkg --get-selections | grep abierto
+
+
+
+HARDWARE
+
+cat / proc / cpuinfo
+gato / prop / meminfo
+gato / prop / dma
+gato / utilería / particiones
+gato / prop / interrupciones
+gato / prop / ioports
+lspci
+update-pciids (Muestra todos los pci)
+setpci (Configuración pci)
+
+
+NÚCLEO
+
+lsmod = Ver módulos cargados en el sistema)
+insmod = Instalar un módulo
+rmmod = Remover un módulo
+
+
+USB
+
+cd / proc / bus / usb = Ruta del usb
+lsusb = Ver dispositivos usb conectados
+lsusb -t = Ver usb con mayor detalle
+df = Ver dispostivos
+sudo umount / dev / sdf1 = Expulsar usb (Sino expulsa, utilizar = killall tumblerd) 
+
+
+ARRANQUE
+
+dmesg = Registros del arranque
+/ var / log + cat = Ver registros
+runlevel = Ver el nivel de arranque.
+
+
+SYSTEMD
+
+ls / etc / systemd
+
+El sistema de carpetas se puede configurar bastantes servicio.
+
+/ usr / lib / systemd
+
+
+
+SCRIPTING BASH
+
+Uso: Agilizar porcesos largos y tediosos, automatizar acciones repetitivas, mejorar la experiencia del usuario.
+
+Los archivos tienen extensión .sh y en la cabecera del archivo siempre comienza con #! / Bin / bash.
+Para ejecutar un bash necesitamos permisos de ejecución y lectura.
+
+
+
+
+
+
